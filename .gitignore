@@ -1,3 +1,5 @@
-bin/*
-objs/*
-*.so
+DemoHook.iml
+build
+.idea
+.gradle
+ElfHook.iml
