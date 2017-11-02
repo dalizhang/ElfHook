@@ -17,7 +17,6 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             native-lib.cpp
              hook/main.cpp
              hook/elf_common.cpp
              hook/elf_hooker.cpp
