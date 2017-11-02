@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }).start();
         } else if (v == (View)mButton2) {
-            System.out.printf("Vitamio 按钮\n");
+//            System.out.printf("Vitamio 按钮\n");
         } else if (v == (View)mButton3) {
             System.out.printf("Webview 按钮\n");
             Intent intent = new Intent();
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             System.out.printf("Hook 按钮\n");
             mElfHooker = new ElfHooker();
             mElfHooker.setHook();
-            mElfHooker.test();
+//            mElfHooker.test();
         }
     }
 }
