@@ -20,7 +20,8 @@ add_library( # Sets the name of the library.
              hook/main.cpp
              hook/elf_common.cpp
              hook/elf_hooker.cpp
-             hook/elf_module.cpp)
+             hook/elf_module.cpp
+             hook/sockaddr_util.c)
 
 
 # Searches for a specified prebuilt library and stores the path as a

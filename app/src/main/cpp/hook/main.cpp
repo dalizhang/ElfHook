@@ -7,6 +7,7 @@
 #include <dlfcn.h>
 
 #include "elf_hooker.h"
+#include "sockaddr_util.h"
 
 static void* (*__old_impl_dlopen)(const char* filename, int flag);
 
@@ -26,6 +27,12 @@ extern "C" {
     static int __nativehook_impl_connect(int sockfd,struct sockaddr * serv_addr,int addrlen)
     {
         log_info("__nativehook_impl_connect ->\n");
+        if (serv_addr->sa_family == AF_INET || serv_addr->sa_family == AF_INET6) {
+            size_t destLen = serv_addr->sa_family == AF_INET ? INET_ADDRSTRLEN + 8 :INET6_ADDRSTRLEN + 8;
+            char dest[(sizeof(char) * destLen)];
+            sockaddr_toString(serv_addr, dest, destLen, true);
+            log_info("__nativehook_impl_connect -> (%s)\n", dest);
+        }
         int res = __old_impl_connect(sockfd, serv_addr, addrlen);
         return res;
     }
